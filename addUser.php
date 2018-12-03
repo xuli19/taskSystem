@@ -20,7 +20,8 @@
                         break;
                 }
         
-                $userquery = sprintf('INSERT INTO users(userID,username,`PASSWORD`,sex,regtime) VALUES(%s,"%s",PASSWORD("%s"),"%s",%s)', $userNO, $username, $password, $sex, 'NOW()');
+                // $userquery = sprintf('INSERT INTO users(userID,username,`PASSWORD`,sex,regtime) VALUES(%s,"%s",PASSWORD("%s"),"%s",%s)', $userNO, $username, $password, $sex, 'NOW()');   MYSQL 版本以后不再使用
+                $userquery = sprintf('INSERT INTO users(userID,username,`PASSWORD`,sex,regtime) VALUES(%s,"%s",SHA1("%s"),"%s",%s)', $userNO, $username, $password, $sex, 'NOW()');
                 // var_dump($userquery);exit;
                 if ($con=connectDB()) {                    ;
                     if ($result = insertTable($con, $userquery)) {

@@ -5,20 +5,6 @@
     include_once('./public/sessionControl.php');
     include_once('../jxyx/public/phpqrcode/qrlib.php');//生成二维码
 
-    function Code()
-    {
-        $code=<<<CODE
-设备名称  型号 设备编号
-中控：HY-6000 20149905
-计算机：同方I5 20181009
-CODE;
-        QRcode::png($code, 'class.png');
-        $qpng = "class.png";
-        echo '<td><img src="class.png"></td>';
-    }
-
-    
-    
     $query ="select * from classroominfo";
 
     if ($con=connectDB()) {
@@ -106,7 +92,7 @@ CODE;
                         echo '<td><a class="btn btn-info" href="./QRcode.PHP?id='.$value['id'].'"'.'role="button">生成二维码</a></td>';
                         // echo '<td><i class="fas fa-stroopwafel"><a href="./QRcode.PHP">生成二维码</a></i></td>';
                         // echo '<td><a class="swipebox" href="./qr/232.png"><img src="./static/qr.png" alt="qr" width="20px"></a></td>';
-                        echo '<td><a class="example-image-link" href="./qr/'.$value['id'].'.png" data-lightbox="example-1"><img class="example-image" src="./static/qr.png" alt="image-1" width=20px /></a></td>';
+                        echo '<td><a class="example-image-link" href="./qr/'.$value['id'].'.png" data-lightbox="example-1"><img class="example-image" src="./static/qr.png" alt="'.$value['building'].$value['district'].$value['roomNO'].'" width=20px /></a></td>';
                         echo "</tr>";
                     }
                 ?>

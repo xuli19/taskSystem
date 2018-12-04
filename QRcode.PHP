@@ -36,8 +36,6 @@ CODE;
     if (!file_exists($pngAbsoluteFilePath)) {
         QRcode::png($code, $pngAbsoluteFilePath);
         echo '<script> alert("😋生成成功！"); javascript:history.back()</script>';
-
-
     } else {
         echo '出现错误了！';
         echo '<hr />';
@@ -47,5 +45,5 @@ CODE;
     // echo '<hr />';
     
     // displaying
-    echo '<img src="'.$urlRelativeFilePath.'" />'; 
+    // echo '<img src="'.$urlRelativeFilePath.'" />'; 
 ?>
